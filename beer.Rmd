@@ -1,0 +1,19 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+beerdata <- read.csv("Consumo_cerveja.csv", dec = ",")
+beerdata <- beerdata[1:365,]
+str(beerdata)
+```
+
+
+```{r}
+names(beerdata)<- c("Date", "Temp_Med", "Temp_Min", "Temp_Max", "Precipitation", "Weekend", "Consumption")
+beerdata$Consumption <- as.numeric(as.character(beerdata$Consumption))
+beerdata$Date <- as.Date(beerdata$Date)
+head(beerdata)
+```
+
